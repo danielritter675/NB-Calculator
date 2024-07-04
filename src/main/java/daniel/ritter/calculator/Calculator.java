@@ -26,23 +26,416 @@ public class Calculator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        calcTextFieldOutputEquation = new javax.swing.JTextField();
+        calcTextFieldOutputResult = new javax.swing.JTextField();
+        calcButtonAllClear = new javax.swing.JButton();
+        calcButtonClear = new javax.swing.JButton();
+        calcButtonPercentage = new javax.swing.JButton();
+        calcButtonDivide = new javax.swing.JButton();
+        calcButtonMultiply = new javax.swing.JButton();
+        calcButtonSubtract = new javax.swing.JButton();
+        calcButtonAdd = new javax.swing.JButton();
+        calcButtonEquals = new javax.swing.JButton();
+        calcButtonComma = new javax.swing.JButton();
+        calcButtonNegate = new javax.swing.JButton();
+        calcButton0 = new javax.swing.JButton();
+        calcButton1 = new javax.swing.JButton();
+        calcButton2 = new javax.swing.JButton();
+        calcButton3 = new javax.swing.JButton();
+        calcButton4 = new javax.swing.JButton();
+        calcButton5 = new javax.swing.JButton();
+        calcButton6 = new javax.swing.JButton();
+        calcButton7 = new javax.swing.JButton();
+        calcButton8 = new javax.swing.JButton();
+        calcButton9 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calculator");
+        setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
-        setType(java.awt.Window.Type.UTILITY);
+
+        calcTextFieldOutputEquation.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        calcTextFieldOutputEquation.setToolTipText("");
+        calcTextFieldOutputEquation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcTextFieldOutputEquationActionPerformed(evt);
+            }
+        });
+
+        calcTextFieldOutputResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcTextFieldOutputResultActionPerformed(evt);
+            }
+        });
+
+        calcButtonAllClear.setText("AC");
+        calcButtonAllClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonAllClearActionPerformed(evt);
+            }
+        });
+
+        calcButtonClear.setText("C");
+        calcButtonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonClearActionPerformed(evt);
+            }
+        });
+
+        calcButtonPercentage.setText("%");
+        calcButtonPercentage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonPercentageActionPerformed(evt);
+            }
+        });
+
+        calcButtonDivide.setText("÷");
+        calcButtonDivide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonDivideActionPerformed(evt);
+            }
+        });
+
+        calcButtonMultiply.setText("*");
+        calcButtonMultiply.setToolTipText("");
+        calcButtonMultiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonMultiplyActionPerformed(evt);
+            }
+        });
+
+        calcButtonSubtract.setText("-");
+        calcButtonSubtract.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonSubtractActionPerformed(evt);
+            }
+        });
+
+        calcButtonAdd.setText("+");
+        calcButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonAddActionPerformed(evt);
+            }
+        });
+
+        calcButtonEquals.setText("=");
+        calcButtonEquals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonEqualsActionPerformed(evt);
+            }
+        });
+
+        calcButtonComma.setText(",");
+        calcButtonComma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonCommaActionPerformed(evt);
+            }
+        });
+
+        calcButtonNegate.setText("±");
+        calcButtonNegate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButtonNegateActionPerformed(evt);
+            }
+        });
+
+        calcButton0.setText("0");
+        calcButton0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton0ActionPerformed(evt);
+            }
+        });
+
+        calcButton1.setText("1");
+        calcButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton1ActionPerformed(evt);
+            }
+        });
+
+        calcButton2.setText("2");
+        calcButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton2ActionPerformed(evt);
+            }
+        });
+
+        calcButton3.setText("3");
+        calcButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton3ActionPerformed(evt);
+            }
+        });
+
+        calcButton4.setText("4");
+        calcButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton4ActionPerformed(evt);
+            }
+        });
+
+        calcButton5.setText("5");
+        calcButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton5ActionPerformed(evt);
+            }
+        });
+
+        calcButton6.setText("6");
+        calcButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton6ActionPerformed(evt);
+            }
+        });
+
+        calcButton7.setText("7");
+        calcButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton7ActionPerformed(evt);
+            }
+        });
+
+        calcButton8.setText("8");
+        calcButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton8ActionPerformed(evt);
+            }
+        });
+
+        calcButton9.setText("9");
+        calcButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 421, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(calcTextFieldOutputEquation)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(calcButtonNegate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calcButton0, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(calcButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calcButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(calcButtonComma, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calcButtonEquals, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(calcButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calcButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(calcButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calcButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(calcButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calcButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(calcButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calcButtonSubtract, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(calcButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calcButtonMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(calcButtonAllClear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(calcButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(calcButtonPercentage, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(calcButtonDivide, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(calcTextFieldOutputResult))
+                .addGap(6, 6, 6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 382, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(calcTextFieldOutputEquation, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(calcTextFieldOutputResult, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(calcButtonPercentage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(calcButtonDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(calcButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(calcButtonAllClear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(calcButtonMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(calcButtonSubtract, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(calcButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(calcButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(calcButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(calcButtonEquals, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcButtonComma, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcButton0, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(calcButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calcButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(calcButtonNegate, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private double firstNumber = 0;
+    private double secondNumber = 0;
+    private String operator = "";
+
+    private void calcTextFieldOutputEquationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcTextFieldOutputEquationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calcTextFieldOutputEquationActionPerformed
+
+    private void calcTextFieldOutputResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcTextFieldOutputResultActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calcTextFieldOutputResultActionPerformed
+
+    private void calcButtonAllClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonAllClearActionPerformed
+        calcTextFieldOutputEquation.setText("");
+        calcTextFieldOutputResult.setText("");
+    }//GEN-LAST:event_calcButtonAllClearActionPerformed
+
+    private void calcButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonClearActionPerformed
+        // Get text from OutputEquation TextField
+        String currentText = calcTextFieldOutputEquation.getText();
+
+        // Check if text !empty --> delete last character
+        if (currentText.length() > 0) {
+            String newText = currentText.substring(0, currentText.length() - 1);
+
+            // Set new output text
+            calcTextFieldOutputEquation.setText(newText);
+        }
+    }//GEN-LAST:event_calcButtonClearActionPerformed
+
+    private void calcButtonPercentageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonPercentageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calcButtonPercentageActionPerformed
+
+    private void calcButtonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonDivideActionPerformed
+        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
+        operator = "/";
+        calcTextFieldOutputEquation.setText("");
+    }//GEN-LAST:event_calcButtonDivideActionPerformed
+
+    private void calcButtonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonMultiplyActionPerformed
+        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
+        operator = "*";
+        calcTextFieldOutputEquation.setText("");
+    }//GEN-LAST:event_calcButtonMultiplyActionPerformed
+
+    private void calcButtonSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonSubtractActionPerformed
+        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
+        operator = "-";
+        calcTextFieldOutputEquation.setText("");
+    }//GEN-LAST:event_calcButtonSubtractActionPerformed
+
+    private void calcButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonAddActionPerformed
+        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
+        operator = "+";
+        calcTextFieldOutputEquation.setText("");
+    }//GEN-LAST:event_calcButtonAddActionPerformed
+
+    private void calcButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonEqualsActionPerformed
+
+    }//GEN-LAST:event_calcButtonEqualsActionPerformed
+
+    private void calcButtonCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonCommaActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + ",");
+    }//GEN-LAST:event_calcButtonCommaActionPerformed
+
+    private void calcButtonNegateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonNegateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calcButtonNegateActionPerformed
+
+    private void calcButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton0ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "0");
+    }//GEN-LAST:event_calcButton0ActionPerformed
+
+    private void calcButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton1ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "1");
+    }//GEN-LAST:event_calcButton1ActionPerformed
+
+    private void calcButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton2ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "2");
+    }//GEN-LAST:event_calcButton2ActionPerformed
+
+    private void calcButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton3ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "3");
+    }//GEN-LAST:event_calcButton3ActionPerformed
+
+    private void calcButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton4ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "4");
+    }//GEN-LAST:event_calcButton4ActionPerformed
+
+    private void calcButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton5ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "5");
+    }//GEN-LAST:event_calcButton5ActionPerformed
+
+    private void calcButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton6ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "6");
+    }//GEN-LAST:event_calcButton6ActionPerformed
+
+    private void calcButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton7ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "7");
+    }//GEN-LAST:event_calcButton7ActionPerformed
+
+    private void calcButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton8ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "8");
+    }//GEN-LAST:event_calcButton8ActionPerformed
+
+    private void calcButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton9ActionPerformed
+        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "9");
+    }//GEN-LAST:event_calcButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +473,27 @@ public class Calculator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton calcButton0;
+    private javax.swing.JButton calcButton1;
+    private javax.swing.JButton calcButton2;
+    private javax.swing.JButton calcButton3;
+    private javax.swing.JButton calcButton4;
+    private javax.swing.JButton calcButton5;
+    private javax.swing.JButton calcButton6;
+    private javax.swing.JButton calcButton7;
+    private javax.swing.JButton calcButton8;
+    private javax.swing.JButton calcButton9;
+    private javax.swing.JButton calcButtonAdd;
+    private javax.swing.JButton calcButtonAllClear;
+    private javax.swing.JButton calcButtonClear;
+    private javax.swing.JButton calcButtonComma;
+    private javax.swing.JButton calcButtonDivide;
+    private javax.swing.JButton calcButtonEquals;
+    private javax.swing.JButton calcButtonMultiply;
+    private javax.swing.JButton calcButtonNegate;
+    private javax.swing.JButton calcButtonPercentage;
+    private javax.swing.JButton calcButtonSubtract;
+    private javax.swing.JTextField calcTextFieldOutputEquation;
+    private javax.swing.JTextField calcTextFieldOutputResult;
     // End of variables declaration//GEN-END:variables
 }
