@@ -62,6 +62,7 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcTextFieldOutputResult.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         calcTextFieldOutputResult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcTextFieldOutputResultActionPerformed(evt);
@@ -330,6 +331,7 @@ public class Calculator extends javax.swing.JFrame {
     private double firstNumber = 0;
     private double secondNumber = 0;
     private String operator = "";
+    private double result = 0;
 
     private void calcTextFieldOutputEquationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcTextFieldOutputEquationActionPerformed
         // TODO add your handling code here:
@@ -358,35 +360,58 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_calcButtonClearActionPerformed
 
     private void calcButtonPercentageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonPercentageActionPerformed
-        // TODO add your handling code here:
+        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
+        calcTextFieldOutputEquation.setText("");
+        operator = "%";
     }//GEN-LAST:event_calcButtonPercentageActionPerformed
 
     private void calcButtonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonDivideActionPerformed
         firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        operator = "/";
         calcTextFieldOutputEquation.setText("");
+        operator = "/";
     }//GEN-LAST:event_calcButtonDivideActionPerformed
 
     private void calcButtonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonMultiplyActionPerformed
         firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        operator = "*";
         calcTextFieldOutputEquation.setText("");
+        operator = "*";
     }//GEN-LAST:event_calcButtonMultiplyActionPerformed
 
     private void calcButtonSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonSubtractActionPerformed
         firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        operator = "-";
         calcTextFieldOutputEquation.setText("");
+        operator = "-";
     }//GEN-LAST:event_calcButtonSubtractActionPerformed
 
     private void calcButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonAddActionPerformed
         firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        operator = "+";
         calcTextFieldOutputEquation.setText("");
+        operator = "+";
     }//GEN-LAST:event_calcButtonAddActionPerformed
 
     private void calcButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonEqualsActionPerformed
-
+        secondNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
+        
+        if(operator == "+"){
+            result = firstNumber + secondNumber;
+            calcTextFieldOutputResult.setText(Double.toString(result));
+        }
+        else if(operator == "-") {
+            result = firstNumber - secondNumber;
+            calcTextFieldOutputResult.setText(Double.toString(result));
+        }
+        else if(operator == "*") {
+            result = firstNumber * secondNumber;
+            calcTextFieldOutputResult.setText(Double.toString(result));
+        }
+        else if(operator == "/") {
+            result = firstNumber / secondNumber;
+            calcTextFieldOutputResult.setText(Double.toString(result));
+        }
+        else if(operator == "%") {
+            result = firstNumber % secondNumber;
+            calcTextFieldOutputResult.setText(Double.toString(result));
+        }
     }//GEN-LAST:event_calcButtonEqualsActionPerformed
 
     private void calcButtonCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonCommaActionPerformed
