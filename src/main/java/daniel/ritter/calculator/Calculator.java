@@ -4,17 +4,171 @@
  */
 package daniel.ritter.calculator;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JButton;
+import javax.swing.UIManager;
+import java.awt.Color;
+
 /**
  *
  * @author danie
  */
-public class Calculator extends javax.swing.JFrame {
+public class Calculator extends javax.swing.JFrame implements KeyListener {
 
     /**
      * Creates new form Calculator
      */
     public Calculator() {
+
         initComponents();
+        addKeyListener(this);
+        setFocusable(true);
+        setLocationRelativeTo(null);
+        customizeUI();
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Not used
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
+
+        switch (key) {
+            case KeyEvent.VK_0:
+            case KeyEvent.VK_NUMPAD0:
+                calcButton0.doClick();
+                break;
+            case KeyEvent.VK_1:
+            case KeyEvent.VK_NUMPAD1:
+                calcButton1.doClick();
+                break;
+            case KeyEvent.VK_2:
+            case KeyEvent.VK_NUMPAD2:
+                calcButton2.doClick();
+                break;
+            case KeyEvent.VK_3:
+            case KeyEvent.VK_NUMPAD3:
+                calcButton3.doClick();
+                break;
+            case KeyEvent.VK_4:
+            case KeyEvent.VK_NUMPAD4:
+                calcButton4.doClick();
+                break;
+            case KeyEvent.VK_5:
+            case KeyEvent.VK_NUMPAD5:
+                calcButton5.doClick();
+                break;
+            case KeyEvent.VK_6:
+            case KeyEvent.VK_NUMPAD6:
+                calcButton6.doClick();
+                break;
+            case KeyEvent.VK_7:
+            case KeyEvent.VK_NUMPAD7:
+                calcButton7.doClick();
+                break;
+            case KeyEvent.VK_8:
+            case KeyEvent.VK_NUMPAD8:
+                calcButton8.doClick();
+                break;
+            case KeyEvent.VK_9:
+            case KeyEvent.VK_NUMPAD9:
+                calcButton9.doClick();
+                break;
+            case KeyEvent.VK_ADD:
+            case KeyEvent.VK_PLUS:
+                if (!isLastCharacterOperator()) {
+                    calcButtonAdd.doClick();
+                }
+                break;
+            case KeyEvent.VK_SUBTRACT:
+            case KeyEvent.VK_MINUS:
+                if (!isLastCharacterOperator()) {
+                    calcButtonSubtract.doClick();
+                }
+                break;
+            case KeyEvent.VK_MULTIPLY:
+            case KeyEvent.VK_ASTERISK:
+                if (!isLastCharacterOperator()) {
+                    calcButtonMultiply.doClick();
+                }
+                break;
+            case KeyEvent.VK_DIVIDE:
+            case KeyEvent.VK_SLASH:
+                if (!isLastCharacterOperator()) {
+                    calcButtonDivide.doClick();
+                }
+                break;
+            case KeyEvent.VK_EQUALS:
+            case KeyEvent.VK_ENTER:
+                calcButtonEquals.doClick();
+                break;
+            case KeyEvent.VK_PERIOD:
+            case KeyEvent.VK_DECIMAL:
+            case KeyEvent.VK_COMMA:
+                calcButtonComma.doClick();
+                break;
+            case KeyEvent.VK_BACK_SPACE:
+                calcButtonClear.doClick();
+                break;
+            case KeyEvent.VK_ESCAPE:
+                calcButtonAllClear.doClick();
+                break;
+            default:
+                // Check for the '%' character
+                if (e.getKeyChar() == '%') {
+                    if (!isLastCharacterOperator()) {
+                        calcButtonPercentage.doClick();
+                    }
+                }
+                break;
+        }
+    }
+
+    private void customizeUI() {
+        getContentPane().setBackground(new java.awt.Color(59, 65, 76)); // Hauptfenster Hintergrundfarbe
+
+        // Hintergrundfarbe der Buttons setzen
+        setButtonColor(calcButtonAllClear, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonClear, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonPercentage, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonDivide, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonMultiply, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonSubtract, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonAdd, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonEquals, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonComma, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButtonNegate, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton0, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton1, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton2, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton3, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton4, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton5, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton6, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton7, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton8, new java.awt.Color(100, 100, 100));
+        setButtonColor(calcButton9, new java.awt.Color(100, 100, 100));
+    }
+
+    private void setButtonColor(JButton button, Color color) {
+        button.setBackground(color);
+        button.setOpaque(true);
+        button.setBorderPainted(false);
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // Not used
     }
 
     /**
@@ -51,24 +205,32 @@ public class Calculator extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculator");
-        setBackground(new java.awt.Color(255, 255, 255));
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(59, 65, 76));
         setResizable(false);
 
+        calcTextFieldOutputEquation.setEditable(false);
         calcTextFieldOutputEquation.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         calcTextFieldOutputEquation.setToolTipText("");
+        calcTextFieldOutputEquation.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        calcTextFieldOutputEquation.setFocusable(false);
         calcTextFieldOutputEquation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcTextFieldOutputEquationActionPerformed(evt);
             }
         });
 
+        calcTextFieldOutputResult.setEditable(false);
         calcTextFieldOutputResult.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        calcTextFieldOutputResult.setFocusable(false);
         calcTextFieldOutputResult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcTextFieldOutputResultActionPerformed(evt);
             }
         });
 
+        calcButtonAllClear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonAllClear.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonAllClear.setText("AC");
         calcButtonAllClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +238,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonClear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonClear.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonClear.setText("C");
         calcButtonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +247,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonPercentage.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonPercentage.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonPercentage.setText("%");
         calcButtonPercentage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +256,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonDivide.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonDivide.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonDivide.setText("÷");
         calcButtonDivide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +265,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonMultiply.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonMultiply.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonMultiply.setText("*");
         calcButtonMultiply.setToolTipText("");
         calcButtonMultiply.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +275,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonSubtract.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonSubtract.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonSubtract.setText("-");
         calcButtonSubtract.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +284,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonAdd.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonAdd.setText("+");
         calcButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +293,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonEquals.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonEquals.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonEquals.setText("=");
         calcButtonEquals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +302,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonComma.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonComma.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonComma.setText(",");
         calcButtonComma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +311,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButtonNegate.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButtonNegate.setForeground(new java.awt.Color(255, 255, 255));
         calcButtonNegate.setText("±");
         calcButtonNegate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +320,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton0.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton0.setForeground(new java.awt.Color(255, 255, 255));
         calcButton0.setText("0");
         calcButton0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +329,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton1.setForeground(new java.awt.Color(255, 255, 255));
         calcButton1.setText("1");
         calcButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +338,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton2.setForeground(new java.awt.Color(255, 255, 255));
         calcButton2.setText("2");
         calcButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +347,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton3.setForeground(new java.awt.Color(255, 255, 255));
         calcButton3.setText("3");
         calcButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +356,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton4.setForeground(new java.awt.Color(255, 255, 255));
         calcButton4.setText("4");
         calcButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +365,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton5.setForeground(new java.awt.Color(255, 255, 255));
         calcButton5.setText("5");
         calcButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +374,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton6.setForeground(new java.awt.Color(255, 255, 255));
         calcButton6.setText("6");
         calcButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +383,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton7.setForeground(new java.awt.Color(255, 255, 255));
         calcButton7.setText("7");
         calcButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,6 +392,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton8.setForeground(new java.awt.Color(255, 255, 255));
         calcButton8.setText("8");
         calcButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +401,8 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        calcButton9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        calcButton9.setForeground(new java.awt.Color(255, 255, 255));
         calcButton9.setText("9");
         calcButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,8 +528,6 @@ public class Calculator extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private double firstNumber = 0;
-    private double secondNumber = 0;
     private String operator = "";
     private double result = 0;
 
@@ -360,66 +558,65 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_calcButtonClearActionPerformed
 
     private void calcButtonPercentageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonPercentageActionPerformed
-        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        calcTextFieldOutputEquation.setText("");
-        operator = "%";
+        if (!isLastCharacterOperator()) {
+            calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + " % ");
+            operator = "%";
+        }
     }//GEN-LAST:event_calcButtonPercentageActionPerformed
 
     private void calcButtonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonDivideActionPerformed
-        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        calcTextFieldOutputEquation.setText("");
-        operator = "/";
+        if (!isLastCharacterOperator()) {
+            calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + " / ");
+            operator = "/";
+        }
     }//GEN-LAST:event_calcButtonDivideActionPerformed
 
     private void calcButtonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonMultiplyActionPerformed
-        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        calcTextFieldOutputEquation.setText("");
-        operator = "*";
+        if (!isLastCharacterOperator()) {
+            calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + " * ");
+            operator = "*";
+        }
     }//GEN-LAST:event_calcButtonMultiplyActionPerformed
 
     private void calcButtonSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonSubtractActionPerformed
-        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        calcTextFieldOutputEquation.setText("");
-        operator = "-";
+        if (!isLastCharacterOperator()) {
+            calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + " - ");
+            operator = "-";
+        }
     }//GEN-LAST:event_calcButtonSubtractActionPerformed
 
     private void calcButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonAddActionPerformed
-        firstNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        calcTextFieldOutputEquation.setText("");
-        operator = "+";
+        if (!isLastCharacterOperator()) {
+            calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + " + ");
+            operator = "+";
+        }
     }//GEN-LAST:event_calcButtonAddActionPerformed
 
     private void calcButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonEqualsActionPerformed
-        secondNumber = Double.parseDouble(calcTextFieldOutputEquation.getText());
-        
-        if(operator == "+"){
-            result = firstNumber + secondNumber;
-            calcTextFieldOutputResult.setText(Double.toString(result));
-        }
-        else if(operator == "-") {
-            result = firstNumber - secondNumber;
-            calcTextFieldOutputResult.setText(Double.toString(result));
-        }
-        else if(operator == "*") {
-            result = firstNumber * secondNumber;
-            calcTextFieldOutputResult.setText(Double.toString(result));
-        }
-        else if(operator == "/") {
-            result = firstNumber / secondNumber;
-            calcTextFieldOutputResult.setText(Double.toString(result));
-        }
-        else if(operator == "%") {
-            result = firstNumber % secondNumber;
-            calcTextFieldOutputResult.setText(Double.toString(result));
+        try {
+            String equation = calcTextFieldOutputEquation.getText().replace(',', '.');
+            double result = evaluateExpression(equation);
+            calcTextFieldOutputResult.setText(Double.toString(result).replace('.', ','));
+        } catch (NumberFormatException e) {
+            calcTextFieldOutputResult.setText("Error: Ungültiges Format!");
         }
     }//GEN-LAST:event_calcButtonEqualsActionPerformed
 
     private void calcButtonCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonCommaActionPerformed
-        calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + ",");
+        String currentText = calcTextFieldOutputEquation.getText();
+        if (!currentText.contains(",")) {
+            calcTextFieldOutputEquation.setText(currentText + ",");
+        }
     }//GEN-LAST:event_calcButtonCommaActionPerformed
 
     private void calcButtonNegateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonNegateActionPerformed
-        // TODO add your handling code here:
+        try {
+            double currentValue = Double.parseDouble(calcTextFieldOutputEquation.getText().replace(',', '.'));
+            currentValue = -currentValue;
+            calcTextFieldOutputEquation.setText(Double.toString(currentValue).replace('.', ','));
+        } catch (NumberFormatException e) {
+            calcTextFieldOutputResult.setText("Error: Ungültiges Format!");
+        }
     }//GEN-LAST:event_calcButtonNegateActionPerformed
 
     private void calcButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton0ActionPerformed
@@ -461,6 +658,50 @@ public class Calculator extends javax.swing.JFrame {
     private void calcButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButton9ActionPerformed
         calcTextFieldOutputEquation.setText(calcTextFieldOutputEquation.getText() + "9");
     }//GEN-LAST:event_calcButton9ActionPerformed
+
+    private double evaluateExpression(String equation) {
+        // Basic implementation of expression evaluation
+        // This function needs to be robust for all possible inputs
+        String[] tokens = equation.split(" ");
+        double result = Double.parseDouble(tokens[0]);
+        for (int i = 1; i < tokens.length; i += 2) {
+            String operator = tokens[i];
+            double secondNumber = Double.parseDouble(tokens[i + 1]);
+            switch (operator) {
+                case "+":
+                    result += secondNumber;
+                    break;
+                case "-":
+                    result -= secondNumber;
+                    break;
+                case "*":
+                    result *= secondNumber;
+                    break;
+                case "/":
+                    if (secondNumber != 0) {
+                        result /= secondNumber;
+                    } else {
+                        throw new NumberFormatException("Division durch Null!");
+                    }
+                    break;
+                case "%":
+                    result %= secondNumber;
+                    break;
+                default:
+                    throw new NumberFormatException("Ungültiger Operator!");
+            }
+        }
+        return result;
+    }
+
+    private boolean isLastCharacterOperator() {
+        String text = calcTextFieldOutputEquation.getText();
+        if (text.isEmpty()) {
+            return false;
+        }
+        char lastChar = text.charAt(text.length() - 1);
+        return lastChar == '+' || lastChar == '-' || lastChar == '*' || lastChar == '/' || lastChar == '%';
+    }
 
     /**
      * @param args the command line arguments
