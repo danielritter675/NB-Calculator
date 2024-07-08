@@ -135,7 +135,7 @@ public class Calculator extends javax.swing.JFrame implements KeyListener {
     }
 
     private void customizeUI() {
-        getContentPane().setBackground(new java.awt.Color(59, 65, 76)); // Hauptfenster Hintergrundfarbe
+        getContentPane().setBackground(new java.awt.Color(72, 72, 72)); // Hauptfenster Hintergrundfarbe
 
         // Hintergrundfarbe der Buttons setzen
         setButtonColor(calcButtonAllClear, new java.awt.Color(100, 100, 100));
@@ -206,12 +206,16 @@ public class Calculator extends javax.swing.JFrame implements KeyListener {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculator");
         setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(59, 65, 76));
+        setBackground(new java.awt.Color(62, 65, 63));
         setResizable(false);
 
         calcTextFieldOutputEquation.setEditable(false);
+        calcTextFieldOutputEquation.setBackground(new java.awt.Color(100, 100, 100));
+        calcTextFieldOutputEquation.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        calcTextFieldOutputEquation.setForeground(new java.awt.Color(255, 255, 255));
         calcTextFieldOutputEquation.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         calcTextFieldOutputEquation.setToolTipText("");
+        calcTextFieldOutputEquation.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         calcTextFieldOutputEquation.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         calcTextFieldOutputEquation.setFocusable(false);
         calcTextFieldOutputEquation.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +225,11 @@ public class Calculator extends javax.swing.JFrame implements KeyListener {
         });
 
         calcTextFieldOutputResult.setEditable(false);
+        calcTextFieldOutputResult.setBackground(new java.awt.Color(100, 100, 100));
+        calcTextFieldOutputResult.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        calcTextFieldOutputResult.setForeground(new java.awt.Color(255, 255, 255));
         calcTextFieldOutputResult.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        calcTextFieldOutputResult.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         calcTextFieldOutputResult.setFocusable(false);
         calcTextFieldOutputResult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,7 +425,6 @@ public class Calculator extends javax.swing.JFrame implements KeyListener {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(calcTextFieldOutputEquation)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -471,15 +478,19 @@ public class Calculator extends javax.swing.JFrame implements KeyListener {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(calcTextFieldOutputResult))
                 .addGap(6, 6, 6))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(calcTextFieldOutputEquation)
+                .addGap(6, 6, 6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(calcTextFieldOutputEquation, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(calcTextFieldOutputEquation, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(calcTextFieldOutputResult, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(calcTextFieldOutputResult, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(calcButtonPercentage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -522,7 +533,7 @@ public class Calculator extends javax.swing.JFrame implements KeyListener {
                             .addComponent(calcButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(calcButtonNegate, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
